@@ -16,6 +16,7 @@ extern struct phys phys_ti99ds360;
 extern struct phys phys_atari810;
 extern struct phys phys_msdos1200;
 extern struct phys phys_msdos360;
+extern struct phys phys_msdos320;
 extern struct phys phys_mdsad;
 extern struct phys phys_mdsad350;
 extern struct phys phys_kaypro2;
@@ -50,6 +51,7 @@ static struct format_info {
 	{"atari810","Atari 810","xfd",&phys_atari810,NULL},
 	{"msdos12","MS-DOS 1200k","img",&phys_msdos1200,&log_fat12},
 	{"msdos360","MS-DOS 360k","img",&phys_msdos360,&log_fat12},
+	{"msdos320","MS-DOS 320k","img",&phys_msdos320,&log_fat12},
 	{"mdsad","North Star MDS-A-D 175k","nsi",&phys_mdsad,NULL},
 	{"mdsad350","North Star MDS-A-D 350k","nsi",&phys_mdsad350,NULL},
 	{"kaypro2","Kaypro 2 CP/M 2.2","dsk",&phys_kaypro2,&log_cpm22_kp2},

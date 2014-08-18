@@ -1,4 +1,4 @@
-/* IBM PC formats, 1200k and 360k */
+/* IBM PC formats, 1200k, 360k, and 320k */
 
 #include <stdio.h>
 #include <stdint.h>
@@ -26,6 +26,10 @@ static int max_track_360k(struct phys *this) {
 	return 39;
 }
 
+static int max_track_320k(struct phys *this) {
+	return 39;
+}
+
 static int min_side(struct phys *this) {
 	return 0;
 }
@@ -44,6 +48,10 @@ static int max_sector_1200k(struct phys *this, int track, int side) {
 
 static int max_sector_360k(struct phys *this, int track, int side) {
 	return 9;
+}
+
+static int max_sector_320k(struct phys *this, int track, int side) {
+	return 8;
 }
 
 static int sector_bytes(struct phys *this, int track, int side, int sector) {
@@ -86,6 +94,10 @@ static int read_sector_360k(struct phys *this, unsigned char *out, int track, in
 	return read_sector(this,out,track,side,sector,3333);
 }
 
+static int read_sector_320k(struct phys *this, unsigned char *out, int track, int side, int sector) {
+        return read_sector(this,out,track,side,sector,3333);
+}
+
 struct phys phys_msdos1200={
 	.min_track = min_track,
 	.max_track = max_track_1200k,
@@ -125,3 +137,24 @@ struct phys phys_msdos360={
 	.read_sector = read_sector_360k,
 	.prepare = phys_gen_no_prepare
 };
+
+struct phys phys_msdos320={
+        .min_track = min_track,
+        .max_track = max_track_320k,
+        .num_tracks = phys_gen_num_tracks,
+        .min_side = min_side,
+        .max_side = max_side,
+        .num_sides = phys_gen_num_sides,
+        .min_sector = min_sector,
+        .max_sector = max_sector_320k,
+        .num_sectors = phys_gen_num_sectors,
+        .tpi = phys_gen_48tpi,
+        .density = phys_gen_low_density,
+        .sector_bytes = sector_bytes,
+        .track_bytes = phys_gen_track_bytes,
+        .physical_track = phys_gen_physical_track,
+        .best_read_order = phys_gen_best_read_order,
+        .read_sector = read_sector_320k,
+        .prepare = phys_gen_no_prepare
+};
+
