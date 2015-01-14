@@ -1,0 +1,10 @@
+OBJ.*
+cmd/fcbrowse
+cmd/fcdrives
+cmd/fcformats
+cmd/fcimage
+macdib/macdib-ppc
+macdib/macdib-x86
+windib/cmd.pdf
+windib/FC5025_Windows_Setup.exe
+windib/windib.exe
