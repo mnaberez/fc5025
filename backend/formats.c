@@ -25,6 +25,7 @@ extern struct phys phys_vg4500;
 extern struct phys phys_pmc;
 extern struct phys phys_coco;
 extern struct phys phys_versa;
+extern struct phys phys_cgrs143;
 
 extern struct log log_applepro;
 extern struct log log_fat12;
@@ -60,6 +61,7 @@ static struct format_info {
 	{"pmc","PMC MicroMate","img",&phys_pmc,&log_cpm30_pmc},
 	{"coco","Tandy Color Computer Disk BASIC","dsk",&phys_coco,&log_rsdos},
 	{"versa","Motorola VersaDOS","img",&phys_versa,&log_versa},
+	{"cgrs143","CGRS Microtech PEDISK 143k","img",&phys_cgrs143,NULL},
 	{NULL,NULL,NULL,NULL}
 };
 
